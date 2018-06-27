@@ -6,7 +6,7 @@
 /*   By: mvann <mvann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/23 19:29:05 by mvann             #+#    #+#             */
-/*   Updated: 2018/06/23 19:40:32 by mvann            ###   ########.fr       */
+/*   Updated: 2018/06/26 16:28:22 by mvann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,9 @@ int		main(void)
 {
 	t_env	env;
 
-	input(env);
+	input(&env);
+	// print_farm(&env);
+	// calculate_distances();
+	// check_start_distance();
+	// move_ants();
 }
