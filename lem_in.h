@@ -6,7 +6,7 @@
 /*   By: mvann <mvann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/23 19:22:50 by mvann             #+#    #+#             */
-/*   Updated: 2018/06/28 21:02:05 by mvann            ###   ########.fr       */
+/*   Updated: 2018/06/29 14:08:56 by mvann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 # include "libft/libft.h"
 # include "libft/ft_printf/ft_printf.h"
+# include "minilibx_macos/mlx.h"
 
 # define DEBUG 1
+# define MAX_ANTS 1000
 
 typedef struct	s_room	t_room;
 typedef struct	s_env	t_env;
@@ -50,7 +52,6 @@ struct	s_ant
 	t_room		*room;
 	int			i;
 };
-
 
 // input.c
 int				input_ants(t_env *env, char *str, int *stage);

@@ -6,7 +6,7 @@
 /*   By: mvann <mvann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/23 19:22:31 by mvann             #+#    #+#             */
-/*   Updated: 2018/06/28 21:24:50 by mvann            ###   ########.fr       */
+/*   Updated: 2018/06/29 13:13:34 by mvann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ int		input_ants(t_env *env, char *str, int *stage)
 {
 	if (is_comment(str))
 		return (1);
-	if (!valid_int(str))
+	if (ft_strlen(str) == 0 || !valid_int(str))
 		error("Invalid ants input.");
 	env->num_ants = ft_atoi(str);
 	if (env->num_ants < 1)
 		error("Too few ants.");
+	else if (env->num_ants > MAX_ANTS)
+		error("Number of ants is greater than MAX_ANTS.");
 	(*stage)++;
 	return (1);
 }
@@ -40,6 +42,8 @@ int		input_room(t_env *env, char *str, int *stage)
 	split = ft_strsplit(str, ' ');
 	if (split_len(split) != 3)
 	{
+		if (split_len(split) == 0)
+			error("No blank lines.");
 		if (!(env->start) || !(env->end))
 			error("No start or end defined.");
 		free_split(split);
@@ -82,11 +86,16 @@ void	input(t_env *env)
 {
 	char	*str;
 	int		stage;
+	int		no_input;
 
 	stage = 0;
 	str = NULL;
+	no_input = 1;
 	while (get_next_line(0, &str))
 	{
+		if (!str)
+			error("Bad input.");
+		no_input = 0;
 		if (stage == 0)
 			input_ants(env, str, &stage);
 		else if (stage == 1)
@@ -95,4 +104,6 @@ void	input(t_env *env)
 			input_link(env, str);
 		free(str);
 	}
+	if (no_input)
+		error("No input given.");
 }

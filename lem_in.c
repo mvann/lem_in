@@ -6,7 +6,7 @@
 /*   By: mvann <mvann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/23 19:29:05 by mvann             #+#    #+#             */
-/*   Updated: 2018/06/28 21:37:49 by mvann            ###   ########.fr       */
+/*   Updated: 2018/06/29 11:56:59 by mvann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ int		main(void)
 	env.start_next = 0;
 	env.end_next = 0;
 	input(&env);
-	print_farm(&env);
 	calculate_distances(&env, env.end, 0);
 	check_start_distance(env.start->d);
+	print_farm(&env);
 	add_ants(&env);
 	// print_env(&env);
 	// print_rooms(&env);
