@@ -6,19 +6,52 @@
 /*   By: mvann <mvann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/23 19:29:05 by mvann             #+#    #+#             */
-/*   Updated: 2018/06/26 16:28:22 by mvann            ###   ########.fr       */
+/*   Updated: 2018/06/28 20:02:16 by mvann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
+int		all_ants_at_end(t_env *env)
+{
+	int		i;
+	t_ant	*tmp_ant;
+
+	i = 0;
+	while(i < env->num_ants)
+	{
+		tmp_ant = get_ant_at(env, i);
+		if (ft_strcmp(tmp_ant->room->name, env->end->name))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+void	check_start_distance(int d)
+{
+	if (d < 0)
+		error("No path to end.");
+}
+
 int		main(void)
 {
 	t_env	env;
 
+	env.rooms = NULL;
+	env.start = NULL;
+	env.end = NULL;
+	env.ants = NULL;
+	env.num_ants = 0;
+	env.start_next = 0;
+	env.end_next = 0;
 	input(&env);
 	// print_farm(&env);
-	// calculate_distances();
-	// check_start_distance();
-	// move_ants();
+	calculate_distances(&env, env.end, 0);
+	check_start_distance(env.start->d);
+	add_ants(&env);
+	print_env(&env);
+	print_rooms(&env);
+	while (!all_ants_at_end(&env))
+		move_ants(&env);
 }
