@@ -6,7 +6,7 @@
 /*   By: mvann <mvann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/28 18:31:54 by mvann             #+#    #+#             */
-/*   Updated: 2018/06/28 18:46:13 by mvann            ###   ########.fr       */
+/*   Updated: 2018/06/29 16:43:50 by mvann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	calculate_distances(t_env *env, t_room *room, int d)
 
 	if (!ft_strcmp(room->name, env->start->name))
 		room->d = room->d > d || room->d < 0 ? d : room->d;
-	else if(room->d < 0 || room->d > d)
+	else if (room->d < 0 || room->d > d)
 	{
 		room->d = d;
 		i = 0;

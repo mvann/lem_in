@@ -6,7 +6,7 @@
 /*   By: mvann <mvann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/28 19:03:20 by mvann             #+#    #+#             */
-/*   Updated: 2018/06/28 19:53:54 by mvann            ###   ########.fr       */
+/*   Updated: 2018/06/29 16:43:34 by mvann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_room	*get_best_available_room(t_env *env, t_room *room)
 
 	curr_room_list = room->rooms;
 	best_room = NULL;
-	while(curr_room_list)
+	while (curr_room_list)
 	{
 		curr_room = get_room_at_name(env->rooms,
 			(char*)curr_room_list->content);
@@ -92,12 +92,12 @@ void	add_ants(t_env *env)
 	ant.room = env->start;
 	ant.i = 0;
 	l = &(env->ants);
-	*l = ft_lstnew(&ant, sizeof (t_ant));
+	*l = ft_lstnew(&ant, sizeof(t_ant));
 	i = 1;
 	while (i < env->num_ants)
 	{
 		ant.i = i;
-		ft_lstadd(l, ft_lstnew(&ant, sizeof (t_ant)));
+		ft_lstadd(l, ft_lstnew(&ant, sizeof(t_ant)));
 		i++;
 	}
 }

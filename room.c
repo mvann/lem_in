@@ -6,7 +6,7 @@
 /*   By: mvann <mvann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 22:05:53 by mvann             #+#    #+#             */
-/*   Updated: 2018/06/28 18:29:49 by mvann            ###   ########.fr       */
+/*   Updated: 2018/06/29 16:45:36 by mvann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_room	*get_room_at_name(t_list *list, char *name)
 {
-	while(list)
+	while (list)
 	{
 		if (!ft_strcmp(((t_room*)list->content)->name, name))
 			return ((t_room*)list->content);
@@ -37,7 +37,7 @@ void	add_room(t_env *env, char *name, int x, int y)
 	room.ant = NULL;
 	l = &(env->rooms);
 	if (*l)
-		ft_lstadd(l, ft_lstnew(&room, sizeof (t_room)));
+		ft_lstadd(l, ft_lstnew(&room, sizeof(t_room)));
 	else
-		*l = ft_lstnew(&room, sizeof (t_room));
+		*l = ft_lstnew(&room, sizeof(t_room));
 }

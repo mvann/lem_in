@@ -6,7 +6,7 @@
 /*   By: mvann <mvann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/29 13:59:38 by mvann             #+#    #+#             */
-/*   Updated: 2018/06/29 16:35:53 by mvann            ###   ########.fr       */
+/*   Updated: 2018/06/29 16:51:32 by mvann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,22 +49,17 @@ typedef struct	s_env_wrapper
 	t_venv		*venv;
 }				t_env_wrapper;
 
-// draw.c
 void			draw_farm(t_env *env, t_venv *venv);
 
-// line.c
 void			line_to1(t_venv *venv, t_vect old, t_vect new);
 void			line_to2(t_venv *venv, t_vect old, t_vect new);
 void			line_to(t_venv *venv, t_vect old, t_vect new);
 
-// normalize.c
 void			calculate_scale(t_env *env, t_venv *venv);
 int				norm_int(t_venv *venv, int n);
 
-// events.c
 int				keydown_event(int keycode, t_env_wrapper *wrapper);
 
-// iterate.c
 void			iterate_ants(t_env *env, t_venv *venv);
 
 #endif

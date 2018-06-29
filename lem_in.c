@@ -6,7 +6,7 @@
 /*   By: mvann <mvann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/23 19:29:05 by mvann             #+#    #+#             */
-/*   Updated: 2018/06/29 11:56:59 by mvann            ###   ########.fr       */
+/*   Updated: 2018/06/29 16:45:03 by mvann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		all_ants_at_end(t_env *env)
 	t_ant	*tmp_ant;
 
 	i = 0;
-	while(i < env->num_ants)
+	while (i < env->num_ants)
 	{
 		tmp_ant = get_ant_at(env, i);
 		if (ft_strcmp(tmp_ant->room->name, env->end->name))
@@ -51,10 +51,7 @@ int		main(void)
 	check_start_distance(env.start->d);
 	print_farm(&env);
 	add_ants(&env);
-	// print_env(&env);
-	// print_rooms(&env);
 	while (!all_ants_at_end(&env))
 		move_ants(&env);
-	// while (1);
 	return (1);
 }

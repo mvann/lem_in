@@ -6,7 +6,7 @@
 /*   By: mvann <mvann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/29 13:06:13 by mvann             #+#    #+#             */
-/*   Updated: 2018/06/29 16:26:04 by mvann            ###   ########.fr       */
+/*   Updated: 2018/06/29 16:49:22 by mvann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	init_venv(t_venv *venv)
 {
-		if (!(venv->mlx = mlx_init()))
-			error("Visualizer initialization failed.");
-		venv->win = mlx_new_window(venv->mlx, WIN_X, WIN_Y, "lem-in");
-		if (!(venv->win))
-			error("Visualizer initialization failed.");
-		venv->shift = 0;
-		venv->range = 0;
+	if (!(venv->mlx = mlx_init()))
+		error("Visualizer initialization failed.");
+	venv->win = mlx_new_window(venv->mlx, WIN_X, WIN_Y, "lem-in");
+	if (!(venv->win))
+		error("Visualizer initialization failed.");
+	venv->shift = 0;
+	venv->range = 0;
 }
 
 void	vis_input(t_env *env)
