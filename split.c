@@ -6,7 +6,7 @@
 /*   By: mvann <mvann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 20:25:59 by mvann             #+#    #+#             */
-/*   Updated: 2018/06/28 20:10:27 by mvann            ###   ########.fr       */
+/*   Updated: 2018/06/28 20:18:19 by mvann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	process_split(t_env *env, char **split)
 	add_room(env, name, ft_atoi(x_s), ft_atoi(y_s));
 	if (env->start_next)
 	{
-		ft_printf("s %s\n", name);
 		if (env->start || env->end_next)
 			error("Start and end must be specified separately and only once.");
 		env->start = get_room_at_name(env->rooms, name);
@@ -36,7 +35,6 @@ void	process_split(t_env *env, char **split)
 	}
 	else if (env->end_next)
 	{
-		ft_printf("e %s\n", name);
 		if (env->end || env->start_next)
 			error("Start and end must be specified separately and only once.");
 		env->end = get_room_at_name(env->rooms, name);

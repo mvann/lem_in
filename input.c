@@ -6,7 +6,7 @@
 /*   By: mvann <mvann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/23 19:22:31 by mvann             #+#    #+#             */
-/*   Updated: 2018/06/28 20:12:16 by mvann            ###   ########.fr       */
+/*   Updated: 2018/06/28 21:24:50 by mvann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,11 @@ int		input_link(t_env *env, char *str)
 	if (!tmp_room)
 		error("A room in a link does not exist.");
 	add_name(tmp_room, split[0]);
+	free_split(split);
+	if (!env->links)
+		env->links = ft_lstnew(str, ft_strlen(str) + 1);
+	else
+		ft_lstadd(&(env->links), ft_lstnew(str, ft_strlen(str) + 1));
 	return (1);
 }
 
