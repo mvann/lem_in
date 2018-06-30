@@ -6,7 +6,7 @@
 /*   By: mvann <mvann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/23 19:22:50 by mvann             #+#    #+#             */
-/*   Updated: 2018/06/29 16:51:16 by mvann            ###   ########.fr       */
+/*   Updated: 2018/06/29 18:14:49 by mvann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ struct			s_env
 	t_list		*rooms;
 	t_room		*start;
 	t_room		*end;
+	t_list		*strs;
 	t_list		*ants;
-	t_list		*links;
 	int			num_ants;
 	int			start_next;
 	int			end_next;
@@ -66,7 +66,7 @@ void			error(char *s);
 int				is_comment(char *s);
 t_room			*get_room_at_name(t_list *list, char *name);
 void			add_room(t_env *env, char *name, int x, int y);
-void			print_farm(t_env *env);
+void			print_farm(t_list *list);
 void			print_env(t_env *env);
 void			print_rooms(t_env *env);
 void			print_room(t_room *room);

@@ -6,7 +6,7 @@
 /*   By: mvann <mvann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/29 13:06:13 by mvann             #+#    #+#             */
-/*   Updated: 2018/06/29 16:49:22 by mvann            ###   ########.fr       */
+/*   Updated: 2018/06/29 18:19:52 by mvann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	vis_input(t_env *env)
 			input_link(env, str);
 		free(str);
 	}
+	free(str);
 	if (no_input)
 		error("No input given.");
 }
@@ -58,8 +59,8 @@ int		main(void)
 	env.rooms = NULL;
 	env.start = NULL;
 	env.end = NULL;
+	env.strs = NULL;
 	env.ants = NULL;
-	env.links = NULL;
 	env.num_ants = 0;
 	env.start_next = 0;
 	env.end_next = 0;

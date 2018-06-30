@@ -6,7 +6,7 @@
 /*   By: mvann <mvann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 20:25:59 by mvann             #+#    #+#             */
-/*   Updated: 2018/06/29 16:48:46 by mvann            ###   ########.fr       */
+/*   Updated: 2018/06/29 17:26:10 by mvann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	process_split(t_env *env, char **split)
 	y_s = split[2];
 	if (!valid_int(x_s) || !valid_int(y_s) || name[0] == 'L' || name[0] == '#'
 		|| ft_strchr(name, '-') || get_room_at_name(env->rooms, name))
-		error("Invalid room name or room already exists.");
+		error("Invalid room or room already exists.");
 	add_room(env, name, ft_atoi(x_s), ft_atoi(y_s));
 	if ((env->start_next && env->start) || (env->end_next && env->end) ||
 		(env->start_next && env->end_next))

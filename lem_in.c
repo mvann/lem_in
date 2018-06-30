@@ -6,7 +6,7 @@
 /*   By: mvann <mvann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/23 19:29:05 by mvann             #+#    #+#             */
-/*   Updated: 2018/06/29 16:45:03 by mvann            ###   ########.fr       */
+/*   Updated: 2018/06/29 18:16:40 by mvann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,16 @@ int		main(void)
 	env.rooms = NULL;
 	env.start = NULL;
 	env.end = NULL;
+	env.strs = NULL;
 	env.ants = NULL;
-	env.links = NULL;
 	env.num_ants = 0;
 	env.start_next = 0;
 	env.end_next = 0;
 	input(&env);
 	calculate_distances(&env, env.end, 0);
 	check_start_distance(env.start->d);
-	print_farm(&env);
+	print_farm(env.strs);
+	ft_printf("\n");
 	add_ants(&env);
 	while (!all_ants_at_end(&env))
 		move_ants(&env);

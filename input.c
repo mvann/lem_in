@@ -6,11 +6,19 @@
 /*   By: mvann <mvann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/23 19:22:31 by mvann             #+#    #+#             */
-/*   Updated: 2018/06/29 13:13:34 by mvann            ###   ########.fr       */
+/*   Updated: 2018/06/29 18:09:25 by mvann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+
+void	add_str(t_env *env, char *str)
+{
+	if (!env->strs)
+		env->strs = ft_lstnew(str, ft_strlen(str) + 1);
+	else
+		ft_lstadd(&(env->strs), ft_lstnew(str, ft_strlen(str) + 1));
+}
 
 int		input_ants(t_env *env, char *str, int *stage)
 {
@@ -75,10 +83,6 @@ int		input_link(t_env *env, char *str)
 		error("A room in a link does not exist.");
 	add_name(tmp_room, split[0]);
 	free_split(split);
-	if (!env->links)
-		env->links = ft_lstnew(str, ft_strlen(str) + 1);
-	else
-		ft_lstadd(&(env->links), ft_lstnew(str, ft_strlen(str) + 1));
 	return (1);
 }
 
@@ -102,6 +106,7 @@ void	input(t_env *env)
 			input_room(env, str, &stage);
 		if (stage == 2)
 			input_link(env, str);
+		add_str(env, str);
 		free(str);
 	}
 	if (no_input)
